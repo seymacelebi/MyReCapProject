@@ -10,10 +10,51 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //ColorTest();
-           //AddBrand();
+            //AddBrand();
+            //RentalTest();
+            //UserTest();
+           // RentalAdded();
+        }
 
+        private static void RentalAdded()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(new Rental
+            {
+                RentDate = DateTime.Now,
+                ReturnDate = DateTime.Now,
+                CarId = 1,
+                CustomerId = 4
+            });
+
+            if (result.Success == true)
+            {
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Email);
+            }
+        }
+
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            foreach (var rental in rentalManager.GetAll().Data)
+            {
+                Console.WriteLine(rental.RentalId + " " + rental.CustomerId + " " + rental.CarId + " " + rental.RentDate + " " + rental.ReturnDate);
+            }
         }
 
         private static void AddBrand()
