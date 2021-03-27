@@ -42,5 +42,10 @@ namespace Business.Constants
         public static string UserUpdated = "Kullanıcı  güncellendi.";
         public static string UserListed = "Kullanıcı listelendi.";
 
+        public static string CarDeleted { get; internal set; }
+        public static string CarUpdated { get; internal set; }
+        public static string ProductCountOfCarError { get; internal set; }
+        public static string DescriptionsAlreadyExits { get; internal set; }
+        public static string CarImageLimitExceeded { get; internal set; }
     }
 }
