@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -47,5 +48,8 @@ namespace Business.Constants
         public static string ProductCountOfCarError { get; internal set; }
         public static string DescriptionsAlreadyExits { get; internal set; }
         public static string CarImageLimitExceeded { get; internal set; }
+
+        public static string AccessTokenCreated = "Access token created";
+        public static string AuthorizationDenied = "AuthorizationDenied";
     }
 }
