@@ -39,14 +39,14 @@ namespace ConsoleUI
             }
         }
 
-        private static void UserTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            foreach (var user in userManager.GetAll().Data)
-            {
-                Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Email);
-            }
-        }
+        //private static void UserTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    foreach (var user in userManager.GetAll().Data)
+        //    {
+        //        Console.WriteLine(user.FirstName + " " + user.LastName + " " + user.Email);
+        //    }
+        //}
 
         private static void RentalTest()
         {

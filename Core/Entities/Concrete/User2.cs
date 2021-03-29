@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core.Entities.Concrete
 {
-    public class User : IEntity
+    public class User2 : IEntity
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
