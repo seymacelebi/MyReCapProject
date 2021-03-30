@@ -4,13 +4,14 @@ using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataAccess.Concrete.EntityFramework;
 using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User2, ReCapContext>, IUserDAL
+    public class EfUserDal : EfEntityRepositoryBase<User, ReCapContext>, IUserDal
     {
-        public List<OperationClaim> GetClaims(User2 user)
+        public List<OperationClaim> GetClaims(User user)
         {
             using (var context = new ReCapContext())
             {
