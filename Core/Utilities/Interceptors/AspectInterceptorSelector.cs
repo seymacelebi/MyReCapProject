@@ -16,7 +16,7 @@ namespace Core.Utilities.Interceptors
             var methodAttributes = type.GetMethod(method.Name)
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
             classAttributes.AddRange(methodAttributes);
-           
+        //    classAttributes.Add(new ExpectionAspect(typeof)FileLogger)));
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
         }
