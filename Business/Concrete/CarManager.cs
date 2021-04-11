@@ -16,6 +16,7 @@ using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Business.Concrete
@@ -33,6 +34,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         { //Business code
+
             IResult result = BusinessRules.Run(CheckIfDescriptionsExists(car.Descriptions),
                      CheckIfCarCountOfBrandCorrect(car.BrandId));
             if (result != null)
@@ -104,6 +106,11 @@ namespace Business.Concrete
         public IResult AddTransactionalTest(Car car)
         {
             throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Car>> GetByBrand(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.BrandId == id));
         }
     }
 }
